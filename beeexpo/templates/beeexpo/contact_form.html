@@ -1,0 +1,31 @@
+{% extends "beeexpo/base.html" %}
+{% block title %}Contact{% endblock %}
+{% block conf-content %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+
+<div class="container">
+  {% if messages %}
+     {% for message in messages %}
+     <h5>  {{ message }}</h5>
+     <br><br><br><br><br>
+     {% endfor %}
+
+  {% else %}
+  <div class="row index-mid">
+      <form id="form" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="g-recaptcha" data-sitekey="6LejamIUAAAAAGkZR_Bszyhioc5s6YHdrqqF4wzM"></div>
+        <p style="margin-top:5px;">If you don't hear back from us within a few days, please make sure to check your <u>spam folder</u> .</p> 
+        {% buttons %}
+          <button type="submit" class="btn btn-primary btn-color">Submit</button>
+        {% endbuttons %}
+        <div id="modal"></div>
+      </form>
+  {% endif %}
+
+  </div>
+</div>
+{% endblock %}

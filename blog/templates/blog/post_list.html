@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+
+
+<div class="row">
+  <div class="col-12 col-md-9  space-top">
+    <h1 class="text-center ">News</h1>
+    <br><br>
+    {% for post in post_list %}
+      <div class="">
+        <div class="centerstage">
+          <h3 class="mb-4" id="news-title"></ul>
+            <a href="{% url 'blog:news_detail' pk=post.pk %}">{{ post.title }} </a> </h3>
+          <div class="text">
+              <p> {{post.text|truncatewords:15 }}</p>
+          </div>
+          <div class="date mb-5">
+            <p>Published on: {{post.created_date|date:"D M Y"}} by {{post.author}}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-12 col-md-3  space-top">
+    {% include 'event/event_list.html' %}
+  </div>
+
+</div>
+{% endblock %}

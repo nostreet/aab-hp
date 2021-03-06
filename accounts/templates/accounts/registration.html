@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+<br>
+
+{% if user.is_authenticated %}
+<div class="container jumbotron text-center space-top">
+  <h2>You are already logged in. </h2>
+</div>
+<br>
+
+{% else %}
+  <div class="container front_container space-top">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+        <br>
+        <h4><a href="{% url 'home' %}">Home</a> </h4>
+      {% else %}
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+
+        <form id="form" enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {% bootstrap_form user_form %}
+          {% bootstrap_form profile_form %}
+          {% buttons %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          {% endbuttons %}
+          <div id="modal"></div>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+{% endblock %}

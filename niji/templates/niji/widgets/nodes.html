@@ -1,0 +1,11 @@
+{% load i18n %}
+<div class="card">
+    <div class="card-header">{% trans "Subjects" %}</div>
+    <div class="card-body">
+        {% for node in nodes %}
+            <a href="{% url 'niji:node' node.pk %}">
+                <span class="badge badge-warning meta-node">{{ node.title }}</span>
+            </a>
+        {% endfor %}
+    </div>
+</div>

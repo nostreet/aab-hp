@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{% load bootstrap3 %}
+<br>
+<div class="container text-center space-top">
+  <h1> Profile</h1>
+</div>
+<br>
+<div class="container text-center">
+  {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+          <strong>  {{ message }}</strong>
+              </li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+</div>
+<div class="container front_container">
+  <div class="jumbotron">
+    <h2 class="flow-text">Update your information</h2>
+    <br>
+    <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form noodle_form %}
+            {{ formset.as_p }}
+            {% buttons %}
+              <button type="submit" class="btn btn-primary">Update</button>
+            {% endbuttons %}
+        </form>
+        </div>
+    </div>
+
+<div class="container text-center">
+  <h5><u><a href="{% url 'accounts:change_password' %}">Change Password</a></u></h5>
+</div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% load staticfiles %}
+{% url 'beeexpo:home' as home2_url %}
+{% url 'beeexpo:speakers' as speakers_url %}
+{% url 'beeexpo:schedule' as schedule_url %}
+{% url 'beeexpo:tickets' as tickets_url %}
+{% url 'beeexpo:contact' as contact_url %}
+
+<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light" id="hide-me-lg">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ home2_url }}">
+            <p class="nav-bk-color nav-size
+              {% if request.path == home2_url %} active {% endif %}">
+              Home</p></a>
+        </li>
+        <li class="nav-item nav-spacing-1 logo-spacing-1">
+          <a class="nav-link" href="{{ speakers_url }}">
+            <p class="nav-bk-color nav-size
+              {% if request.path == speakers_url %} active {% endif %}">
+              Speakers</p></a>
+        </li>
+      </ul>
+    </div>
+    <div class="" id="">
+      <a><img class="logo" src="{% static '/allaboutbees/media/logo_2019.png' %}"</a>
+    </div>
+    <div class="collapse navbar-collapse flex-md-column" id="navbarText">
+      <ul class="navbar-nav mx-auto test">
+          <li class="nav-item">
+              <a class="nav-link get_tickets" href="{{ tickets_url }}">
+                <p class="nav-bk-color nav-size nav-but
+                  {% if request.path == tickets_url %} active {% endif %}">
+                  Get Tickets</p>
+                </a>
+          </li>
+
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item logo-spacing-2 nav-top-down">
+          <a class="nav-link" href="{{ schedule_url }}">
+            <p class="nav-bk-color nav-size
+              {% if request.path == schedule_url %} active {% endif %}">
+              Schedule</p></a>
+        </li>
+        <li class="nav-item nav-spacing-2 nav-top-down">
+          <a class="nav-link" href="{{ contact_url }}">
+            <p class="nav-bk-color nav-size
+              {% if request.path == contact_url %} active {% endif %}">
+              Contact</p></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link nav-hidden" type="hidden"href="#"><p class="nav-size">N</p></a>
+        </li>
+
+      </ul>
+
+</div>
+  </div>
+</nav>
+
+<div class="row">
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light" id="show-me-lg">
+      <div class="container">
+        <button class="col btn-mg-left navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ home2_url }}">
+                <p class="nav-bk-color nav-size
+                  {% if request.path == home2_url %} active {% endif %}">
+                  Home</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ speakers_url }}">
+                <p class="nav-bk-color nav-size
+                  {% if request.path == speakers_url %} active {% endif %}">
+                  Speakers</p></a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link get_tickets" href="{{ tickets_url }}">
+                    <p class="nav-bk-color nav-size
+                      {% if request.path == tickets_url %} active {% endif %}">
+                      Get Tickets</p></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ schedule_url }}">
+                <p class="nav-bk-color nav-size
+                  {% if request.path == schedule_url %} active {% endif %}">
+                  Schedule</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ contact_url }}">
+                <p class="nav-bk-color nav-size
+                  {% if request.path == contact_url %} active {% endif %}">
+                  Contact</p></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="col text-center" id="show-me-lg">
+    <a><img class="logo" src="{% static '/allaboutbees/media/logo_2019_nostrip.png' %}"</a>
+  </div>
+
+</div>

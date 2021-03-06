@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+<br>
+<h1 class="text-center space-top">Library</h1>
+<br><br>
+
+<div class="container">
+  <p>There is a small range of books available for checking out. Please contact Ann O’Grady at <a href="mailto:annmogrady01@gmail.com">annmogrady01@gmail.com</a> if there is a book you would like to check out.</p>
+<br>
+{% for book in book_list %}
+<div class="row">
+  <div class="col-md-4 book-tile text-center">
+    {% if book.book_cover %}
+    <img src="{{book.book_cover.url}}"
+        width="220" height="342" alt="book cover">
+    {% else %}
+    <img src="#"
+        width="220" height="342" alt="neutral book cover">
+    {% endif %}
+    <br><br>
+  </div>
+  <div class="col-md-8">
+    <h4>{{book.title}}</h4>
+    <p>{{book.storyline}}</p>
+  </div>
+
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock %}

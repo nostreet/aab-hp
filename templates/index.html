@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block main_page %}
+
+<!-- IMAGE -->
+<div class="" style="margin-top:-10px;">
+  {% include 'front-logo-pic.html' %}
+</div>
+
+<!-- BAR UNDER IMAGE -->
+<div class="under-logo-bar"></div>
+
+<!-- CONTENT -->
+<section class="py-4">
+  <div class="container">
+    {% if messages %}
+            {% for message in messages %}
+            <h5>  {{ message }}</h5>
+            {% endfor %}
+            <br><br>
+    {% endif %}
+      <div class="text-center">
+            <h1>Welcome to All About Bees website.</h1>
+      </div>
+      <br><br>
+<div class="row">
+
+<div class="col-12 col-md-8">
+      <p>We are a group of bee keepers, based in North Canterbury, who share a common interest and wish to either learn or assist others to learn good bee keeping practices.</p>
+
+    <p class="lead"><b>Our mission statement:</b> </p>
+    <p>To inspire and empower people, it is all about the bees <br> <br>
+
+      Our club was established in October 2016 and has a strong membership with
+      a wealth of knowledge. Greame Narbey, is our club mentor and has been
+      a beekeeper for over 55 years. He is a commercial bee keeper who is kind
+      enough to assist us with training, knowledge and support. <br> <br>
+
+      We meet twice per month, club nights are on the third Monday of each month
+      and hive days are the second Sunday of each month. <br> <br>
+
+      Club member ship is $30 per annum for a single membership and $50 for a
+      family membership. <br> <br>
+
+      Please contact us to find out more about our membership, club nights and
+      hive days, everyone is welcome to attend and we look forward to meeting you.
+    </p>
+   </div>
+  <div class="col-12 col-md-4 text-center">
+    <div class="fb-page" data-href="https://www.facebook.com/aabeesnc/"
+         data-tabs="timeline" data-small-header="false" data-adapt-container-width="true"
+         data-hide-cover="false" data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/aabeesnc/"
+      class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/aabeesnc/">
+        All About Bees North Canterbury</a>
+      </blockquote>
+    </div>
+   </div>
+   </div>
+  </div>
+</section>
+
+<br><br>
+<div class="container ">
+  <div class="container-index mx-auto">
+    <h1 class="text-center">Contact</h1>
+
+      <form id="form" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="g-recaptcha" data-sitekey="6LejamIUAAAAAGkZR_Bszyhioc5s6YHdrqqF4wzM"></div>
+        <p style="margin-top:5px;">If you don't hear back from us within a few days, please make sure to check your <u>spam folder</u> .</p>
+        {% buttons %}
+          <button type="submit" class="btn btn-primary">Send</button>
+        {% endbuttons %}
+        <div id="modal"></div>
+      </form>
+
+
+
+  </div>
+</div>
+{% endblock %}

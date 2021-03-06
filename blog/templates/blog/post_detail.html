@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles%}
+
+<br>
+<h1 class="text-center space-top">News</h1>
+<br><br>
+
+<div class="container">
+  <a href="#" onclick="window.history.back(); return false;"
+    title="Cancel" class="btn-floating waves-effect waves-light red">
+    <i class="material-icons">back</i></a>
+</div>
+<!-- f -->
+<br>
+<div class="container ">
+    <h3 class="mb-4" id="news-title"></ul>{{ post.title }} </h1>
+    <div class="text">
+      <p> {{post.text|linebreaks}}</p>
+    </div>
+    <div class="date mb-5">
+      <p>Published on: {{post.created_date|date:"D M Y"}} by <a href="#">{{post.author}}</a></p>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    {% for var in img_list %}
+      {% if var.post|stringformat:"s" == post.title %}
+        {% if var.file %}
+
+          <a href="{{var.file.url}}" data-lightbox="roadtrip">
+            <img class="img-responsive img-thumbnail img-news"
+              src="{{var.file.url}}" alt="image">
+          </a>
+        {% endif %}
+        {% if var.file2 %}
+
+
+          <a href="{{var.file2.url}}" data-lightbox="roadtrip">
+            <img class="img-responsive img-thumbnail img-news"
+              src="{{var.file2.url}}" alt="image">
+          </a>
+
+        {% endif %}
+        {% if var.file3 %}
+
+          <a href="{{var.file3.url}}" data-lightbox="roadtrip">
+            <img class="img-responsive img-thumbnail img-news"
+              src="{{var.file3.url}}" alt="image">
+          </a>
+
+        {% endif %}
+        {% if var.file4 %}
+
+          <a href="{{var.file4.url}}" data-lightbox="roadtrip">
+            <img class="img-responsive img-thumbnail img-news"
+              src="{{var.file4.url}}" alt="image">
+          </a>
+
+        {% endif %}
+        {% if var.file5 %}
+
+          <a href="{{var.file5.url}}" data-lightbox="roadtrip">
+            <img class="img-responsive img-thumbnail img-news"
+              src="{{var.file5.url}}" alt="image">
+          </a>
+
+        {% endif %}
+        {% if var.file6 %}
+
+          <a href="{{var.file6.url}}" data-lightbox="roadtrip">
+            <img class="img-responsive img-thumbnail img-news"
+              src="{{var.file6.url}}" alt="image">
+          </a>
+
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

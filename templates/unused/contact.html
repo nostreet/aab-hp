@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+<br>
+<h1 class="text-center">Committee</h1>
+<br><br><br>
+
+<div class="row">
+   <!-- /container -->
+
+  <div class="col-12 col-md-9 text-center">
+    <div class="row">
+        <div class="col-6 col-md-4">
+          <img class="img-fluid rounded-circle contact-img"
+                        src="{% static '/allaboutbees/media/placeholder/neutral3.png' %}" alt="nix nix nix">
+        </div>
+        <div class="col-6 col-md-5">
+          <h4>Todd Bennington</h4>
+          <p>Mobile: 021243246</p>
+
+      </div>
+    </div>
+    <br><div class="row">
+        <div class="col-6 col-md-4">
+          <img class="img-fluid rounded-circle contact-img"
+                        src="{% static '/allaboutbees/media/placeholder/neutral3.png' %}" alt="nix nix nix">
+        </div>
+        <div class="col-6 col-md-5">
+          <h4>Maria Karlsen</h4>
+          <p>Mobile: 0215765666</p>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Sidebar -->
+  <div class="col-12 col-md-3 text-center">
+    {% include 'event/event_list.html' %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% load staticfiles %}
+
+{% url 'main' as main_url %}
+{% url 'blog:news' as news_url %}
+{% url 'members' as members_url %}
+{% url 'hiveware' as hiveware_url %}
+{% url 'suppliers' as suppliers_url %}
+{% url 'howto' as howto_url %}
+{% url 'library:books' as books_url %}
+{% url 'accounts:login' as login_url %}
+{% url 'accounts:register' as register_url %}
+{% url 'accounts:edit_profile' pk=user.pk as edit_url  %}
+{% url 'niji:index' as niji_url %}
+
+{% if user.is_authenticated %}
+<nav class="navbar navbar-expand-lg navbar-light  navbar-gradient fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{{ main_url }}">
+      <img src="{% static '/allaboutbees/media/placeholder/index-front-logo.png' %}"
+      width="240" height="70" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="flex-column ml-auto collapse navbar-collapse background-general" id="navbarNav">
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-right:100px;"><a class="nav-link"
+          href="{% url 'beeexpo:home' %}">South-Island Bee Conference</a>
+        </li>
+        <li class="nav-item nav-link" style="color: black; font-family: caviardreams;">Hello <a class="nav-u-c {% if request.path == edit_url %} active {% endif %}" href="{{ edit_url }}">{{user.first_name}}</a></li>
+
+        {% if user.is_staff %}
+          <li class="nav-item"><a class="nav-link"
+            href="{% url 'admin:index' %}">Admin</a>
+          </li>
+          {% endif %}
+
+        <li class="nav-item"><a class="nav-link"
+          href="{% url 'accounts:logout' %}">Log out</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link {% if request.path == main_url %} active {% endif %}"
+          href="{{ main_url }}">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item"><a class="nav-link {% if request.path == news_url %} active {% endif %}"
+          href="{{ news_url }}">News</a>
+        </li>
+        <li class="nav-item"><a class="nav-link {% if request.path == members_url %} active {% endif %}"
+          href="{{ members_url }}">Members</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle {% if request.path == hiveware_url or request.path == suppliers_url or request.path == howto_url %} active {% endif %}" href="#" id="navbarDropdown"
+             role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">Equipment
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ hiveware_url }}">Hive-ware</a>
+            <a class="dropdown-item" href="{{ suppliers_url }}">Suppliers</a>
+            <a class="dropdown-item" href="{{ howto_url }}">How to&rsquo;s</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link {% if request.path == books_url %} active {% endif %}"
+          href="{{ books_url }}">Library</a>
+        </li>
+        <li class="nav-item"><a class="nav-link {% if request.path == niji_url %} active {% endif %}"
+          href="{{ niji_url }}">Forum</a>
+        </li>
+      </ul>
+
+      {% else %}
+<nav class="navbar navbar-expand-lg navbar-light  navbar-gradient fixed-top navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static '/allaboutbees/media/placeholder/index-front-logo.png' %}"
+      width="240" height="70" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="flex-column ml-auto collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-right:100px;"><a class="nav-link"
+          href="{% url 'beeexpo:home' %}">South-Island Bee Conference</a>
+        </li>
+        <li class="nav-item {% if request.path == login_url %} active {% endif %}"><a class="nav-link"
+          href="{{ login_url }}">Login</a>
+        </li>
+        <li class="nav-item {% if request.path == register_url %} active {% endif %}"><a class="nav-link"
+          href="{{ register_url }}">Register</a>
+        </li>
+    </ul>
+      {% endif %}
+
+    </div>
+  </div>
+  </div>
+</nav>

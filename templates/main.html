@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block main_page %}
+
+<!-- IMAGE -->
+{% include 'front-logo-pic.html' %}
+<div class="under-logo-bar"></div>
+<div class="container">
+
+<div class="row">
+
+  <div class="col-12 col-md-8">
+    <!-- Index Content -->
+    <section class="py-4">
+      <div class="container">
+          <!-- <div class="col-6 text-right"> -->
+            <div class="text-center">
+                <h1 class="text-center">Welcome {{ user.first_name }}</h1>
+          </div>
+        <br>
+        <p class="lead"><b>Our mission statement:</b></p>
+        <p>To inspire and empower people, it is all about the bees.</p>
+        <br>
+        <p class="lead"><b>What we are about:</b></p>
+        <p>Many of our members have been looking after bees for some years now.
+          We have a range of experiences from novice to advance, but even our
+          advanced members are always learning something new. This gives rise
+          to good discussions and information exchange. It is important that
+          everybody gets involved and learns good practices. We want to contribute
+          to the health of bees in New Zealand.<br><br>
+
+          Our club is about creating an environment of learning, sharing ideas,
+          knowledge.
+          We are a small club, for now, 40 members, that means as well, we know
+          each other. For the future the aim is to build strong relationships
+          and networks for everybody to access and use.<br><br>
+
+          We are very lucky to have Graeme Narbey as our mentor, who is
+          passionate about bees, very knowledgeable, very generous and available.
+          Beside Graeme we have a wealth of knowledge in our club, Clint and Steve,
+          who are teaching on Sundays and Mondays, when Graeme is not available,
+          and all our members, who are contributing.<br><br>
+
+          We are in the process of planning to create a more formal network
+          between our members. We want form groups of beekeepers who live
+          in the same area and assign a mentor to each group and hope our
+          communication will be much more effective and easier. Each of our
+          club members contribute their creativity, knowledge and curiosity.
+          We encourage everybody to participate in our activities and share
+          their questions and knowledge. Together we are plentiful.
+        </p>
+        <br><br>
+      </div>
+    </section>
+
+    <section>
+      <div class="container text-center">
+        <div class="row">
+
+          <div class="col mb-4">
+            <h3 class="text-headers">Where we meet for hive day:</h3>
+            <p class="lead mb-0">Food Forrest Kaiapoi</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.62922953076!2d172.66376455108852!3d-43.384776079029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3191eb14bb5b93%3A0x46364277f1660aca!2s65A+Cass+St%2C+Kaiapoi+7630!5e0!3m2!1sen!2snz!4v1550604679380"
+            width="350" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <br>
+          </div> <br>
+          <div class="col">
+            <h3 class="text-headers">Monday night meetings:</h3>
+            <p class="lead mb-0">Graham’s</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.616294454291!2d172.64379341545146!3d-43.40594877913054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d318dfe78b53417%3A0x674c66e3e327f509!2s59+Main+N+Rd%2C+Kaiapoi+7691!5e0!3m2!1sen!2snz!4v1514322364786"
+            width="350" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <br><br>
+
+
+  </div>
+  <div class="col-12 col-md-4 text-center">
+    <br>
+    {% include 'event/event_list.html' %}
+    <br><br>
+      <h3 class="text-headers">Facebook</h3>
+
+    <div class="fb-page" data-href="https://www.facebook.com/aabeesnc/"
+         data-tabs="timeline" data-small-header="false" data-adapt-container-width="true"
+         data-hide-cover="false" data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/aabeesnc/"
+      class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/aabeesnc/">
+        All About Bees North Canterbury</a>
+      </blockquote>
+    </div>
+  </div>
+</div>
+{% endblock %}

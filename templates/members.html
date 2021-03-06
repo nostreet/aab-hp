@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+
+<!-- COMMITTEE COMMITTEE -->
+<br>
+<h1 class="text-center space-top">Committee</h1>
+<br><br>
+
+<div class="container">
+  <div class="row">
+
+    {% for content in member_area %}
+      {% if content.userprofileinfo.committee != "Member" and content.is_active and content.userprofileinfo.committee != "" %}
+        <div class="col-lg-4 col-sm-6 mb-4 text-center">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+
+            {% if content.userprofileinfo.profile_picture %}
+              <!-- <img class="img-fluid rounded-circle members-img" -->
+              <img class="members-img img-responsive rounded-circle"
+                  src="{{content.userprofileinfo.profile_picture.url}}" alt="profile picture">
+            {% else %}
+              <img class="img-fluid rounded-circle members-img"
+                  src="{% static 'allaboutbees/media/placeholder/neutral3.png' %}" alt="neutral profile pic">
+            {% endif %}
+
+              <h5>{{content.first_name}} {{content.last_name}} <br> {{content.userprofileinfo.committee}}</h5>
+              <p class="font-weight-light mb-0">Email: {{content.email}}</p>
+              <p class="font-weight-light mb-0">City: {{content.userprofileinfo.city}}</p>
+              <p class="font-weight-light mb-0">Phone: {{content.userprofileinfo.mobile}}</p>
+              <p class="font-weight-light mb-0">Experience: {% if content.userprofileinfo.experience %}{{content.userprofileinfo.experience}} years{% endif%}</p>
+              <p class="font-weight-light mb-0">DECA: {{content.userprofileinfo.daca}}</p>
+              <p>{{content.userprofileinfo.committee}}</p>
+
+          </div>
+        </div>
+      {% endif %}
+    {% endfor%}
+
+  </div>
+</div>
+<!-- MEMBERS MEBMERS -->
+<br><br>
+<h1 class="text-center">Members</h1>
+<br><br>
+<div class="container">
+  <div class="row">
+
+    {% for content in member_area %}
+      {% if content.username != 'tobbau' and content.is_active and content.userprofileinfo.committee == "Member"  %}
+        <div class="col-lg-4 col-sm-6 mb-4 text-center">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+
+            {% if content.userprofileinfo.profile_picture %}
+              <!-- <img class="img-fluid rounded-circle members-img img-responsive" -->
+              <img class="members-img img-responsive rounded-circle"
+                  src="{{content.userprofileinfo.profile_picture.url}}" alt="profile picture">
+            {% else %}
+              <img class="img-fluid rounded-circle members-img"
+                  src="{% static 'allaboutbees/media/placeholder/neutral3.png' %}" alt="neutral profile pic">
+            {% endif %}
+
+              <h5>{{content.first_name}} {{content.last_name}}</h5>
+              <p class="font-weight-light mb-0">Email: {{content.email}}</p>
+              <p class="font-weight-light mb-0">City: {{content.userprofileinfo.city}}</p>
+              <p class="font-weight-light mb-0">Phone: {{content.userprofileinfo.mobile}}</p>
+              <p class="font-weight-light mb-0">Experience:
+                {% if content.userprofileinfo.experience %}{{content.userprofileinfo.experience}} years{% endif%} </p>
+              <p class="font-weight-light mb-0">DECA: {{content.userprofileinfo.daca}}</p>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor%}
+
+  </div>
+</div>
+
+{% endblock %}

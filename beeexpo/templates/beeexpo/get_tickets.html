@@ -1,0 +1,63 @@
+{% extends "beeexpo/base.html" %}
+{% block title %}Get Tickets{% endblock %}
+{% block conf-content %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<div class="container">
+  {% if messages %}
+            {% for message in messages %}
+              <h5>{{message}}</h5>
+             <br>
+             <p></p> <br><br>
+            {% endfor %}
+
+    {% else %}
+  <div class="row index-mid">
+        <h1 class="mb-4 text-headers">South Island Bee Conference 2019</h1>
+
+        <p class="card-text schedule-text">
+          Welcome to the second annual South Island Bee Conference 2019!<br><br>
+          Please fill in your details in the form below. Event registration must
+          be completed at least 5 days prior to the event.<br><br>
+
+          Cost for tickets range from $75-$90, please choose your ticket selection
+          appropriately.<br> Price includes: speakers, forums, lunch, morning
+          and afternoon tea.<br><br>
+
+          <b>Event Details:</b><br>
+          <!-- Date: 10th & 11th August 2019<br> -->
+          Date: 10th August 2019<br>
+          Time: 9:00am - 6:00pm<br>
+          Event Address: Rangiroa High School, 125 E Belt, Rangiora 7400<br><br>
+
+          <!-- <b>Ticket options are:</b><br>
+          <u>Early Bird Sale</u> – Ends 15 June 2019 (ticket must be paid in full on or before 28 June 2019) <br>
+          <u>Normal Ticket Sale</u> – After 15 June 2019 (ticket must be paid in full on or before 5 August 2019) -->
+
+          <!-- <br><br> -->
+          *Required</p><br><br>
+
+            <form id="form" method="POST">
+
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <div class="g-recaptcha" data-sitekey="6LejamIUAAAAAGkZR_Bszyhioc5s6YHdrqqF4wzM"></div>
+              {% buttons %}
+              <br>
+                <p>If  you don't receive any <u>confirmation email</u>, please check your
+                  <b>spam folder</b> .</p>
+                <button type="submit" class="btn btn-primary btn-color">Submit</button>
+              {% endbuttons %}
+              <div id="modal"></div>
+
+            </form>
+
+    <br>
+
+      {% endif %}
+      <!-- Loading button from ajax call -->
+
+  </div>
+</div>
+{% endblock %}

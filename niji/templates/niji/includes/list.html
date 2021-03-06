@@ -1,0 +1,94 @@
+{% extends 'niji/base.html' %}
+{% load i18n %}
+{% load niji_tags %}
+{% load humanize %}
+{% load static %}
+{% block left %}
+    {% block before_main_left %}{% endblock %}
+    <div class="card">
+    <div class="card-body panel-subtitle">
+       <span class="badge badge-success">{{ panel_title }}</span>
+            {% if show_order %}
+              <span class="float-right ordering">
+                Order:
+                <span>
+                  <a href="{% change_topic_ordering request '-last_replied' %}">Last Replied</a>
+                </span>
+                <span>
+                  <a href="{% change_topic_ordering request '-pub_date' %}">Topic Date</a>
+                </span>
+              </span>
+            {% endif %}
+        </div>
+        <!-- List group -->
+        <ul class="list-group topic-list">
+            {% if topics %}
+            {% else %}
+            <li class="list-group-item topic-entry">
+                <div class="entry media">
+                    <div class="media-left media-middle">
+
+                          </div>
+                    <div class="media-body media-middle">
+                      <p class="">
+                          Nobody has made a post yet in the node: {{ panel_title }}.<br> Be the <a href="{% url 'niji:create_topic' %}"> First </a> to do so.
+                      </p>
+
+                    </div>
+                    <div class="media-right media-middle">
+                        <span class="badge"></span>
+                    </div>
+                </div>
+            </li>
+            {% endif %}
+            {% for topic in topics %}
+                <li class="list-group-item topic-entry">
+                    <div class="entry media">
+                        <div class="media-left media-middle">
+                            <a class="list-avatar-link" href="{% url 'niji:user_info' topic.user.pk %}">
+                              <img style="margin-right:8px;" class="user-avatar" src="{% if topic.user.userprofileinfo.profile_picture %}{{ topic.user.userprofileinfo.profile_picture.url}} {% else %} {% static 'allaboutbees/media/placeholder/neutral3.png' %} {% endif %}"></a>
+                        </div>
+                        <div class="media-body media-middle">
+                            <a href="{% url 'niji:topic' pk=topic.pk %}" style="margin-left:;"class="entry-link">
+                                {{ topic.title }}
+                            </a>
+                            <p class="entry-meta">
+                                {% if topic.order <= 3 %}
+                                <span class="meta">
+                                    <span style="margin-left:8px;"class="label label-info meta-top">
+                                        TOP
+                                    </span>
+                                </span>
+                                {% endif %}
+                                <span class="meta">
+                                    <a href="{% url 'niji:node' topic.node.pk %}">
+                                        <span style="margin-left:8px;"class="badge badge-warning meta-node">
+                                     {{ topic.node.title }}
+                                        </span>
+                                    </a>
+                                </span>
+                                    <span class="meta meta-username">
+                                        <a href="{% url 'niji:user_info' topic.user.pk %}">
+                                            {{ topic.user.first_name }}
+                                        </a>
+                                    </span>
+                                    <span class="meta meta-pub_date">
+                                        {{ topic.pub_date | naturaltime }}
+                                    </span>
+                                    <span class="meta meta-last_replied d-none">
+                                        {% trans "Last Replied" %}: {{ topic.last_replied | naturaltime }}
+                                    </span>
+                            </p>
+                        </div>
+                        <div class="media-right media-middle">
+                            <span class="badge">{{ topic.reply_count }}</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="card-footer">
+            {% get_pagination %}
+        </div>
+    </div>
+{% endblock %}

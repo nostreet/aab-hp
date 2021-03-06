@@ -1,0 +1,61 @@
+
+{% if user.is_authenticated %}
+<div class="row">
+  <div class="col-6 float-left" style="height:10px">
+    <footer class="py-5" style="height:10px">
+
+        <p class="m-0 text-center">All content © 2018 All About Bees North Canterbury</p>
+
+    </footer>
+  </div>
+  <div class="col-6 float-right" >
+    <footer class="py-5" style="">
+      <nav class="navbar-expand-md navbar-light " style="margin:-8px; color:black;">
+          <ul class="navbar-nav">
+              <li class="footer-li">
+                <a class="nav-link" id="navbar-bot"
+                   href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="footer-li">
+                <a class="nav-link" id="navbar-bot"
+                   href="{% url 'blog:news' %}">News</a>
+              </li>
+              <li class="footer-li">
+                <a class="nav-link" id="navbar-bot"
+                   href="{% url 'members' %}">Members</a>
+              </li>
+              <li class="footer-li dropdown">
+                <a class="nav-link dropdown-toggle {% if request.path == hiveware_url or request.path == suppliers_url or request.path == howto_url %} active {% endif %}" href="#" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Equipment
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'hiveware' %}">Hive-ware</a>
+                  <a class="dropdown-item" href="{% url 'suppliers' %}">Suppliers</a>
+                  <a class="dropdown-item" href="{% url 'howto' %}">How to&rsquo;s</a>
+                </div>
+              </li>
+              <li class="footer-li">
+                <a class="nav-link" id="navbar-bot"
+                   href="{% url 'library:books' %}">Library</a>
+              </li>
+              <li class="footer-li">
+                <a class="nav-link" id="navbar-bot"
+                   href="{% url 'niji:index' %}">Forum</a>
+              </li>
+          </ul>
+    </nav>
+  </footer>
+ </div>
+</div>
+{% else %}
+<div class="row">
+  <div class="col" style="height:10px">
+    <footer class="py-5" style="height:10px">
+
+        <p class="m-0 text-center">All content © 2018 All About Bees North Canterbury</p>
+
+    </footer>
+  </div>
+</div>
+{% endif %}

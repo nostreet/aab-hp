@@ -1,0 +1,156 @@
+/* NAVBAR SPACING AND LOGO AND FONT */
+.logo{
+  max-width: 350px;
+  max-height: 225px;
+  margin: auto;
+}
+
+#navbar-primary .navbar-nav {
+  width: 100%;
+  text-align: center;
+  > li {
+    display: inline-block;
+    float: none;
+    > a {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}
+.nav-hidden{
+    visibility: hidden;
+}
+.nav-bk-color{
+  background-color: #e6e7e8;
+  }
+.logo-spacing-1{
+  margin-right: -10px;
+  margin-left: -20px;
+}
+.logo-spacing-2{
+  margin-left: -8px;
+}
+.nav-item{
+    margin-top: +17.5px;
+    outline: none;
+}
+
+.nav-size{
+  color: black;
+  font-family: copperplate;
+  font-size: 25px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.nav-spacing-2{
+  margin-left: -20px;
+}
+.nav-top-down{
+  margin-bottom:1px;
+}
+.active{
+  background-color: #ffde0c;
+}
+.nav-but{
+  background-color: #ffde0c;
+  border-radius: 10%;
+  border-color: #d9d9d9;
+  border-width: thin;
+  border-style: solid;
+}
+.test{
+
+  border-color: black;
+  border-width: medium;
+}
+
+/* li+li { border-left: 1px solid #000000 } */
+.footer-li+.footer-li{ border-left: 1px solid #000000 }
+
+.index-text{
+    line-height: 1.8;
+}
+.index-mid{
+  margin-top: -40px;
+}
+
+/* SPEAKERS */
+.round-yel{
+  border-radius: 50%;
+}
+
+/* SCHEDULE */
+.schedule-text{
+  line-height: 1.3;
+}
+/* CONTACT */
+.btn-color{
+  background-color: #ffde0c;
+  color: black;
+  border-color: black;
+}
+
+/* TICKET FORM */
+
+.special{
+  border-bottom: 5px solid red;
+}
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+.text-headers{
+  font-family: copperplate;
+}
+
+/* BUTTON FOR FORMS */
+#modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('/static/allaboutbees/media/ajax-loader.gif')
+                50% 50%
+                no-repeat;
+}
+body #loading #modal {
+    overflow: hidden;
+}
+body #loading #modal {
+    display: block;
+}
+
+/* NAVBAR */
+@media only screen and (max-width: 990px) {
+  .visibility-hidden-lg {visibility:hidden;}
+  #hide-me-lg{display: none;}
+  .index-mid{margin-top: 0px;}
+  .nav-size{
+    font-size: 20px;
+    width: 200px;
+    margin-bottom: 0px;
+  }
+  .nav-item{
+      margin-top: 0px;
+  }
+  .btn-mg-left{
+    margin-left: 20px;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .visibility-hidden-lg {visibility:hidden;}
+  #show-me-lg{display: none;}
+
+}
+/* Small devices (tablets, 768px and up) */
+/* @media (min-width: @screen-sm-min) { */
+/* Medium devices (desktops, 992px and up) */
+/* @media (min-width: @screen-md-min) { */
+/* Large devices (large desktops, 1200px and up) */
+/* @media (min-width: @screen-lg-min) {} */

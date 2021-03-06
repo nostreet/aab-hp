@@ -1,0 +1,222 @@
+<head>
+<style media="screen" type="text/css">
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.containerbee {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* background: #ffeb3b; */
+  background: #cccccc;
+  width: 14em;
+  height: 7em;
+  overflow: hidden;
+}
+.bee1 {
+  position: relative;
+  margin: auto;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: to-fly 0.4s infinite;
+          animation: to-fly 0.4s infinite;
+}
+.bodybee {
+  position: relative;
+  width: 47px;
+  height: 26px;
+  border: 4px solid #fbc02d;
+  background: #ffeb3b;
+  border-radius: 20px;
+  -webkit-perspective: 2500px;
+          perspective: 2500px;
+  z-index: 99;
+}
+.bodybee:before,
+.bodybee:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.bodybee:before {
+  right: 100%;
+  top: 3px;
+  border-top: 6px solid transparent;
+  border-right: 13px solid #fbc02d;
+  border-bottom: 6px solid transparent;
+}
+.bodybee:after {
+  right: 97%;
+  top: 6px;
+  border-top: 3px solid transparent;
+  border-right: 6px solid #ffeb3b;
+  border-bottom: 3px solid transparent;
+}
+.bodybee .line1 {
+  position: relative;
+  left: 10px;
+  height: 18px;
+  width: 18px;
+  background: #fbc02d;
+}
+.wing1-right,
+.wing1-left {
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  width: 23px;
+  height: 25px;
+  background: #ffeb3b;
+  border: 4px solid #fbc02d;
+  border-radius: 100%;
+}
+.wing1-right {
+  left: 15px;
+  -webkit-transform: skew(-20deg);
+          transform: skew(-20deg);
+  -webkit-animation: wing1-beat-right 0.25s infinite;
+          animation: wing1-beat-right 0.25s infinite;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  z-index: 9;
+}
+.wing1-left {
+  -webkit-transform: skew(20deg);
+          transform: skew(20deg);
+  -webkit-animation: wing1-beat-left 0.25s infinite;
+          animation: wing1-beat-left 0.25s infinite;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  z-index: 999;
+}
+.path1 {
+  display: inline-block;
+  position: relative;
+  top: -30px;
+  left: -80px;
+  width: 140px;
+  -webkit-animation: pollen1 0.14s infinite;
+          animation: pollen1 0.14s infinite;
+}
+.pollen1 {
+  display: inline-block;
+  margin: 0;
+  width: 3px;
+  height: 3px;
+  background: #fbc02d;
+  border-radius: 100%;
+}
+@-webkit-keyframes to-fly {
+  50% {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes to-fly {
+  50% {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@-webkit-keyframes wing1-beat-right {
+  50% {
+    -webkit-transform: rotateX(60deg) skew(-20deg) rotateZ(25deg);
+            transform: rotateX(60deg) skew(-20deg) rotateZ(25deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0) skew(-20deg);
+            transform: rotateX(0) skew(-20deg);
+  }
+}
+@keyframes wing1-beat-right {
+  50% {
+    -webkit-transform: rotateX(60deg) skew(-20deg) rotateZ(25deg);
+            transform: rotateX(60deg) skew(-20deg) rotateZ(25deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0) skew(-20deg);
+            transform: rotateX(0) skew(-20deg);
+  }
+}
+@-webkit-keyframes wing1-beat-left {
+  50% {
+    -webkit-transform: rotateX(-65deg) skew(20deg) rotateZ(-10deg);
+            transform: rotateX(-65deg) skew(20deg) rotateZ(-10deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0) skew(20deg);
+            transform: rotateX(0) skew(20deg);
+  }
+}
+@keyframes wing1-beat-left {
+  50% {
+    -webkit-transform: rotateX(-65deg) skew(20deg) rotateZ(-10deg);
+            transform: rotateX(-65deg) skew(20deg) rotateZ(-10deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0) skew(20deg);
+            transform: rotateX(0) skew(20deg);
+  }
+}
+@-webkit-keyframes pollen1 {
+  0% {
+    left: -90px;
+  }
+  100% {
+    left: -95px;
+  }
+}
+@keyframes pollen1 {
+  0% {
+    left: -90px;
+  }
+  100% {
+    left: -95px;
+  }
+}
+
+
+</style>
+
+  </head>
+  <body>
+    <div class="containerbee">
+  <div class="bee1">
+    <div class="bodybee">
+      <div class="line1"></div>
+    </div>
+    <div>
+      <div class="wing1-right"></div>
+      <div class="wing1-left"></div>
+    </div>
+    <div class="path1">
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+      <div class="pollen1"></div>
+    </div>
+  </div>
+</div>
+  </body>

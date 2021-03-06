@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<br>
+
+{% if user.is_authenticated %}
+<div class="container jumbotron text-center space-top">
+  <h2>You are already logged in. </h2>
+</div>
+<br>
+{% else %}
+  <div class="container front_container space-top">
+    <div class="jumbotron">
+          <form action="{% url 'accounts:login' %}"enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          {% buttons %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          {% endbuttons %}
+        </form>
+
+    </div>
+  </div>
+  {% endif %}
+  <div class="container text-center">
+    <a href="{% url 'accounts:password_reset' %}">Forgot password?</a>
+
+  </div>
+
+{% endblock %}

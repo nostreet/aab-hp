@@ -1,0 +1,1 @@
+web: gunicorn allaboutbees.wsgi

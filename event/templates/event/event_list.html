@@ -1,0 +1,28 @@
+
+<h1 class="text-center">Events</h1>
+<br>
+
+<div class="text-center">
+  <!-- Lists up all coming events -->
+  {% for content in event_li %}
+    <!-- Once the event is passed, it will not show it anymore -->
+    {% if content.event_date > time_now %}
+      <table class="e-border-table">
+        <tr>
+          <th colspan="3"><h5><u>{{content.title}}</u></h5></th>
+        </tr>
+        <tr>
+         <td colspan="2">
+          {{content.location}}<br>
+          {{content.event_date}}
+
+         </td>
+         <td class="e-border-td" colspan="2">
+        {{content.description}}<br>
+         </td>
+        </tr>
+        </table>
+        <br><br>
+      {% endif %}
+  {% endfor %}
+</div>

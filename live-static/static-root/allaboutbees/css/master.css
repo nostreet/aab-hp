@@ -1,0 +1,142 @@
+@media screen and (min-width: 950px) {
+ .front_container {width:60%;}
+}
+@media screen and (max-width: 408px) {
+ #password_input{margin-left:0px;}
+}
+/* GENERAL */
+body {
+    background-color: #fcfade;!important;
+}
+h1{font-family: ananda;}
+h2{font-family: ananda;}
+h3{font-family: ananda;}
+
+.jumbotron {
+    /* background-color: #343a40;!important; */
+    background-color: #eee8bf;!important;
+    color: black;
+}
+.text-color-black{
+  color: black;
+}
+.space-top{
+  margin-top: 40px;
+}
+
+/* INDEX INDEX Landing page*/
+.container-index{
+  max-width: 60%;
+}
+
+.btn-homepage{
+  width:100%;
+  line-height: 1.5rem;
+  padding: 3px;
+  padding-left: 8px;
+  padding-right:8px;
+}
+.navbar-nav{
+  /* margin-top: -10px;
+  margin-bottom: -5px; */
+}
+
+/* MEMBER AREA */
+.members-img{
+  height:200px;
+  width:auto;
+}
+
+/* NEWS AREA */
+.img-space{
+  margin-bottom: 10px;
+}
+.img-news{
+  height: 250px;
+  width:auto;
+  margin: 10px;
+
+}
+
+
+.contact-img{
+  height:100px;
+  width:200px;
+}
+
+.news-img{
+  height:250px;
+  width:350px;
+}
+
+#password_input{margin-left:0px;}
+#news-title{text-decoration: underline;}
+
+/* NAVBAR */
+.footer-li+.footer-li{ border-left: 1px solid #000000;}
+.footer-li{font-size: 14px;}
+.navbar-gradient{
+  background: linear-gradient(#ffffff, #eee8bf);
+}
+.under-logo-bar{
+  background-color: #ffee06;
+  min-height: 22px;
+  width: auto;
+}
+nav .navbar-nav li a{
+  color: black !important;
+  font-family: caviardreams;
+  }
+nav .navbar-nav li .nav-u-c{
+  color: blue !important;
+  font-family: caviardreams;
+}
+.img-fluid{
+  max-height: 300px;
+  width: 100%;
+}
+.fixed-top{
+ padding-top: 0px !important;
+ padding-bottom: 0px !important;
+}
+.active{
+  background-color: #ffee06;
+}
+nav .navbar-nav li a:hover{
+  background-color: #ffee06;
+}
+/* FORUM  */
+.badge-warning{
+  background-color: #ffee06;
+}
+
+/* EVENT */
+.e-border-td{
+  padding-left: 10px;
+
+}
+.e-border-table{
+  border-style: solid;
+  border-width: 1.7px;
+}
+
+/* BUTTON FOR FORMS */
+#modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('/static/allaboutbees/media/ajax-loader.gif')
+                50% 50%
+                no-repeat;
+}
+body #loading #modal {
+    overflow: hidden;
+}
+body #loading #modal {
+    display: block;
+}
